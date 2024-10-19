@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">QuestionsAnswers</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome_text">¡Welcome to the Quiz Game!</string>
     <string name="game_description_text">Challenge yourself with questions about the life, career and successes of Michael Jackson. Are you ready to show how much you know about the King of Pop?</string>
     <string name="michael_image_description">Michael Jackson</string>
@@ -11,11 +9,8 @@
     <string name="next_question_text">Next Question </string>
     <string name="correct_text">¡Correct Answer!</string>
     <string name="incorrect_text">Incorrect Answer. The correct answer is: %1$s</string>
-    <string name="enviar_text">Enviar</string>
-    <string name="op0_text">Opción 0</string>
-    <string name="op1_text">Opción 1</string>
-    <string name="op2_Text">Option 2</string>
-    <string name="op3_Text">Option 3</string>
     <string name="restart_game_text">Restart Game</string>
     <string name="score_text">Your score is: %d</string>
+    <string name="back_to_start">Back to Start</string>
+    <string name="exit_application">Exit App</string>
 </resources>

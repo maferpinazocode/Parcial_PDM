@@ -20,27 +20,41 @@
         <RadioButton
             android:id="@+id/option1RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/op0_text" />
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/option2RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/op1_text" />
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/option3RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/op2_Text" />
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/option4RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/op3_Text" />
+            android:layout_height="wrap_content" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:progress="0"
+        android:background="@android:color/darker_gray"
+        android:progressTint="@android:color/holo_blue_light" />
 
     <Button
         android:id="@+id/submitButton"
