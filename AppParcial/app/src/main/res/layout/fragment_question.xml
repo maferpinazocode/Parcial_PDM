@@ -1,50 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:padding="16dp">
-
-<TextView
-    android:id="@+id/questionTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/question_text"
-    android:textSize="20sp"
-    android:layout_gravity="center_horizontal"
-    android:padding="16dp" />
-
-<RadioGroup
-    android:id="@+id/optionsRadioGroup"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <RadioButton
-        android:id="@+id/option1"
+    <TextView
+        android:id="@+id/questionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/first_option" />
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp" />
 
-    <RadioButton
-        android:id="@+id/option2"
+    <RadioGroup
+        android:id="@+id/optionsRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/option1RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/option2RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/option3RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/option4RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/second_option" />
-
-
-</RadioGroup>
-
-<Button
-    android:id="@+id/nextButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/next_text"
-    android:layout_gravity="center_horizontal" />
-
-<ProgressBar
-    android:id="@+id/progressBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp" />
+        android:text="Enviar" />
 </LinearLayout>
