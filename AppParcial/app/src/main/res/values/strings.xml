@@ -14,4 +14,6 @@
     <string name="op1_text">Opción 1</string>
     <string name="op2_Text">Option 2</string>
     <string name="op3_Text">Option 3</string>
+    <string name="restart_game_text">Restart Game</string>
+    <string name="score_text">Your score is: %d</string>
 </resources>

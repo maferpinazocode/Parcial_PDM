@@ -11,6 +11,7 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
         super.onViewCreated(view, savedInstanceState)
         // Configurar botón para empezar el juego
         view.findViewById<Button>(R.id.startButton).setOnClickListener {
+
             findNavController().navigate(R.id.action_welcomeFragment_to_questionFragment)
         }
     }
