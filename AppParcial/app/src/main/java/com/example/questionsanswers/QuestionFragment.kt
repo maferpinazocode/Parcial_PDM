@@ -10,93 +10,80 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 
 class QuestionFragment : Fragment(R.layout.fragment_question) {
-    private val questions = listOf(
+
+    object QuestionData {
+     val questions = listOf(
         Question(
             text = "¿Cuál fue el famoso apodo de Michael Jackson?",
             options = listOf("El Rey del Pop", "El Príncipe de la Música", "El Maestro del Baile", "El Rey del Soul"),
-            correctAnswerIndex = 0
+            correctAnswerIndex = 0,
+            explanation = "Michael Jackson fue apodado 'El Rey del Pop' debido a su inmensa popularidad y éxito en la música pop."
         ),
         Question(
-            text = "¿En qué década lanzó Michael Jackson su álbum 'Thriller', considerado uno de los más vendidos de la historia?",
+            text = "¿En qué década lanzó Michael Jackson su álbum 'Thriller'?",
             options = listOf("1960", "1970", "1980", "1990"),
-            correctAnswerIndex = 2
+            correctAnswerIndex = 2,
+            explanation = "El álbum 'Thriller' fue lanzado en 1982 y se convirtió en el álbum más vendido de todos los tiempos."
         ),
         Question(
             text = "¿En qué película protagonizó Michael Jackson junto a Diana Ross?",
-            options = listOf("The Wiz", "Beat It", "Moonwalker", "Thriller"),
-            correctAnswerIndex = 0
+            options = listOf("The Wiz", "Beat It",  "Moonwalker", "Thriller"),
+            correctAnswerIndex = 0,
+            explanation = "Michael Jackson y Diana Ross protagonizaron 'The Wiz', una adaptación de 'El Mago de Oz'."
         ),
         Question(
             text = "¿Cuál de estos álbumes de Michael Jackson no fue un éxito comercial?",
             options = listOf("Thriller", "Bad", "Dangerous", "Invincible"),
-            correctAnswerIndex = 3
+            correctAnswerIndex = 3,
+            explanation = "'Invincible' fue el álbum menos exitoso de Michael Jackson en términos de ventas comparado con sus otros álbumes."
         ),
         Question(
             text = "¿Qué organización benéfica fundó Michael Jackson?",
             options = listOf("Heal the World Foundation", "Save the Children", "Unicef", "Red Cross"),
-            correctAnswerIndex = 0
-        ),
-        Question(
-            text = "¿Qué famosa actuación de Michael Jackson se hizo viral en los años 80?",
-            options = listOf("Moonwalk", "Breakdance", "Running Man", "Electric Slide"),
-            correctAnswerIndex = 0
-        ),
-        Question(
-            text = "¿Cuál fue el primer álbum en solitario de Michael Jackson?",
-            options = listOf("Off the Wall", "Thriller", "Bad", "Dangerous"),
-            correctAnswerIndex = 0
+            correctAnswerIndex = 0,
+            explanation = "Michael Jackson fundó la 'Heal the World Foundation' para ayudar a los niños y promover la paz en el mundo."
         )
     )
+    }
 
-    private var currentQuestionIndex = 0 // Para rastrear la pregunta actual
-    private var score = 0 // Mantener la puntuación acumulada
+    private var currentQuestionIndex = 0
+    private var score = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Recibe el índice de la pregunta actual y la puntuación acumulada desde los argumentos
         val args = arguments?.let { QuestionFragmentArgs.fromBundle(it) }
         currentQuestionIndex = args?.currentQuestionIndex ?: 0
-        score = args?.score ?: 0 // Recuperar la puntuación actual
+        score = args?.score ?: 0
 
         loadQuestion(view)
 
         view.findViewById<Button>(R.id.submitButton).setOnClickListener {
             val selectedOptionIndex = getSelectedOptionIndex(view)
             if (selectedOptionIndex != -1) {
-                val isCorrect = (selectedOptionIndex == questions[currentQuestionIndex].correctAnswerIndex)
-                val correctAnswer = questions[currentQuestionIndex].options[questions[currentQuestionIndex].correctAnswerIndex]
-
-                // Si la respuesta es correcta, incrementar la puntuación
+                val isCorrect = (selectedOptionIndex == QuestionData.questions[currentQuestionIndex].correctAnswerIndex)
+                val correctAnswer = QuestionData.questions[currentQuestionIndex].options[QuestionData.questions[currentQuestionIndex].correctAnswerIndex]
                 if (isCorrect) {
-                    score++
+                    score += 1
                 }
-
-                // Comprobar si hay más preguntas
-                if (currentQuestionIndex + 1 < questions.size) {
-                    // Crear la acción pasando todos los argumentos necesarios
-                    val action = QuestionFragmentDirections.actionQuestionFragmentToAnswerFragment(
-                        isCorrect = isCorrect,
-                        correctAnswer = correctAnswer,
-                        currentQuestionIndex = currentQuestionIndex + 1, // Avanza a la siguiente pregunta
-                        score = score // Pasar la puntuación actualizada
-                    )
-                    findNavController().navigate(action)
-                } else {
-                    // Si no hay más preguntas, ir al ResultFragment
-                    val action = QuestionFragmentDirections.actionQuestionFragmentToResultFragment(score)
-                    findNavController().navigate(action)
-                }
+                // Crear la acción pasando todos los argumentos necesarios
+                val action = QuestionFragmentDirections.actionQuestionFragmentToAnswerFragment(
+                    isCorrect = isCorrect,
+                    correctAnswer = correctAnswer,
+                    currentQuestionIndex = currentQuestionIndex,
+                    score = score // Pasar la puntuación actualizada
+                )
+                findNavController().navigate(action)
             }
         }
     }
 
     private fun loadQuestion(view: View) {
-        if (currentQuestionIndex < questions.size) {
-            val question = questions[currentQuestionIndex]
+        if (currentQuestionIndex < QuestionData.questions.size) {
+            val question = QuestionData.questions[currentQuestionIndex]
             view.findViewById<TextView>(R.id.questionTextView).text = question.text
+            val optionsRadioGroup = view.findViewById<RadioGroup>(R.id.optionsRadioGroup)
 
-            // Configurar las opciones de respuesta
             val optionsButtons = listOf(
                 view.findViewById<RadioButton>(R.id.option1RadioButton),
                 view.findViewById<RadioButton>(R.id.option2RadioButton),
