@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="correct_answer">#4CAF50</color> <!-- Verde -->
     <color name="incorrect_answer">#F44336</color> <!-- Rojo -->
+    <color name="backgroundColor">#FFFFFF</color> <!-- Cambia el valor según tu preferencia -->
+    <color name="textPrimary">#000000</color>
+    <color name="textSecondary">#666666</color>
+    <color name="buttonColor">#FF6200EE</color> <!-- Color del botón -->
 </resources>

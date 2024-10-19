@@ -22,7 +22,6 @@ class AnswerFragment : Fragment(R.layout.fragment_answer) {
         val explanationTextView: TextView = view.findViewById(R.id.explanationTextView) // Nueva TextView para la explicación
         val nextQuestionButton: Button = view.findViewById(R.id.nextQuestionButton)
 
-        // Mostrar feedback basado en si la respuesta fue correcta o incorrecta
         if (isCorrect) {
             feedbackTextView.text = getString(R.string.correct_text)
             feedbackTextView.setTextColor(resources.getColor(R.color.correct_answer)) // Color verde para correcto
