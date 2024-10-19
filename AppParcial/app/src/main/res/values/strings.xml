@@ -8,4 +8,6 @@
     <string name="first_option">Option 1</string>
     <string name="second_option">Option 2</string>
     <string name="next_text">Next</string>
+    <string name="correct_text">Correct!</string>
+    <string name="next_question_text">Next Question </string>
 </resources>
