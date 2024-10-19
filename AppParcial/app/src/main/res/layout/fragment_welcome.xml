@@ -10,7 +10,7 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to the Quiz Game!"
+        android:text="@string/welcome_text"
         android:textSize="24sp"
         android:textAlignment="center" />
 
@@ -18,5 +18,5 @@
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Game" />
+        android:text="@string/start_text" />
 </LinearLayout>
