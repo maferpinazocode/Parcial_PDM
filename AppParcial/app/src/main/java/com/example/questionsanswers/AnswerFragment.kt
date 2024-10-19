@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 
-
 class AnswerFragment : Fragment(R.layout.fragment_answer) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -15,6 +14,7 @@ class AnswerFragment : Fragment(R.layout.fragment_answer) {
         val args = AnswerFragmentArgs.fromBundle(requireArguments())
         val isCorrect = args.isCorrect
         val correctAnswer = args.correctAnswer
+        val currentQuestionIndex = args.currentQuestionIndex // Índice actualizado
 
         val feedbackTextView: TextView = view.findViewById(R.id.feedbackTextView)
         val nextQuestionButton: Button = view.findViewById(R.id.nextQuestionButton)
@@ -26,8 +26,15 @@ class AnswerFragment : Fragment(R.layout.fragment_answer) {
         }
 
         nextQuestionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_answerFragment_to_questionFragment)
+            if (currentQuestionIndex < 2) {
+                val action = AnswerFragmentDirections.actionAnswerFragmentToQuestionFragment(
+                    currentQuestionIndex = currentQuestionIndex
+                )
+                findNavController().navigate(action)
+            } else {
+                feedbackTextView.text = "¡Has completado todas las preguntas!"
+                nextQuestionButton.isEnabled = false // Desactiva el botón
+            }
         }
     }
 }
-

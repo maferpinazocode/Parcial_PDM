@@ -5,12 +5,13 @@
     <string name="welcome_text">Welcome to the Quiz Game!</string>
     <string name="start_text">Start Game</string>
     <string name="question_text">Sample Question</string>
-    <string name="first_option">Option 1</string>
-    <string name="second_option">Option 2</string>
-    <string name="next_text">Next</string>
     <string name="correct_exclamation_text">Correct!</string>
     <string name="next_question_text">Next Question </string>
     <string name="correct_text">¡Tu respuesta es correcta!</string>
     <string name="incorrect_text">Tu respuesta es incorrecta. La respuesta correcta es: %1$s</string>
     <string name="enviar_text">Enviar</string>
+    <string name="op0_text">Opción 0</string>
+    <string name="op1_text">Opción 1</string>
+    <string name="op2_Text">Option 2</string>
+    <string name="op3_Text">Option 3</string>
 </resources>

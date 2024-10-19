@@ -20,27 +20,31 @@
         <RadioButton
             android:id="@+id/option1RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/op0_text" />
 
         <RadioButton
             android:id="@+id/option2RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/op1_text" />
 
         <RadioButton
             android:id="@+id/option3RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/op2_Text" />
 
         <RadioButton
             android:id="@+id/option4RadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/op3_Text" />
     </RadioGroup>
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/enviar_text" />
+        android:text="@string/next_question_text" />
 </LinearLayout>
