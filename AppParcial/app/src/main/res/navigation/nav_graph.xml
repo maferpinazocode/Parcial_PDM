@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/welcomeFragment">
 
-    <!-- Fragmento de bienvenida -->
+    <!-- Welcome Fragment -->
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.questionsanswers.WelcomeFragment"
@@ -16,31 +16,31 @@
             app:destination="@id/questionFragment" />
     </fragment>
 
-    <!-- Fragmento de la pregunta -->
+    <!-- Question Fragment -->
     <fragment
         android:id="@+id/questionFragment"
         android:name="com.example.questionsanswers.QuestionFragment"
         android:label="Question"
         tools:layout="@layout/fragment_question">
 
-        <!-- Argumento para el índice de la pregunta actual -->
+        <!-- Argument for the current question index -->
         <argument
             android:name="currentQuestionIndex"
             app:argType="integer"
             android:defaultValue="0" />
 
-        <!-- Argumento para la puntuación acumulada -->
+        <!-- Argument for the accumulated score -->
         <argument
             android:name="score"
             app:argType="integer"
             android:defaultValue="0" />
 
-        <!-- Acción para ir al fragmento de respuesta -->
+        <!-- Action to go to the Answer Fragment -->
         <action
             android:id="@+id/action_questionFragment_to_answerFragment"
             app:destination="@id/answerFragment">
 
-            <!-- Argumentos que se pasan a AnswerFragment -->
+            <!-- Arguments passed to AnswerFragment -->
             <argument
                 android:name="currentQuestionIndex"
                 app:argType="integer" />
@@ -55,7 +55,7 @@
                 app:argType="integer" />
         </action>
 
-        <!-- Acción para ir al fragmento de resultados cuando se acaban las preguntas -->
+        <!-- Action to go to Result Fragment when questions are finished -->
         <action
             android:id="@+id/action_questionFragment_to_resultFragment"
             app:destination="@id/resultFragment">
@@ -65,14 +65,14 @@
         </action>
     </fragment>
 
-    <!-- Fragmento de la respuesta -->
+    <!-- Answer Fragment -->
     <fragment
         android:id="@+id/answerFragment"
         android:name="com.example.questionsanswers.AnswerFragment"
         android:label="Answer"
         tools:layout="@layout/fragment_answer">
 
-        <!-- Argumentos que recibe AnswerFragment -->
+        <!-- Arguments received by AnswerFragment -->
         <argument
             android:name="isCorrect"
             app:argType="boolean" />
@@ -86,13 +86,12 @@
             android:name="score"
             app:argType="integer" />
 
-
-        <!-- Acción para ir al siguiente fragmento de preguntas o al resultado -->
+        <!-- Action to go to the next Question Fragment or Result -->
         <action
             android:id="@+id/action_answerFragment_to_questionFragment"
             app:destination="@id/questionFragment">
 
-            <!-- Argumentos para reiniciar el flujo de preguntas -->
+            <!-- Arguments to reset the question flow -->
             <argument
                 android:name="currentQuestionIndex"
                 app:argType="integer" />
@@ -101,7 +100,7 @@
                 app:argType="integer" />
         </action>
 
-        <!-- Acción para ir al fragmento de resultados cuando se acaban las preguntas -->
+        <!-- Action to go to Result Fragment when questions are finished -->
         <action
             android:id="@+id/action_answerFragment_to_resultFragment"
             app:destination="@id/resultFragment">
@@ -111,19 +110,19 @@
         </action>
     </fragment>
 
-    <!-- Fragmento de resultados -->
+    <!-- Result Fragment -->
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.example.questionsanswers.ResultFragment"
         android:label="Result"
         tools:layout="@layout/fragment_result">
 
-        <!-- Argumento para la puntuación final -->
+        <!-- Argument for the final score -->
         <argument
             android:name="score"
             app:argType="integer" />
 
-        <!-- Acción para reiniciar el juego desde la primera pregunta -->
+        <!-- Action to restart the game from the first question -->
         <action
             android:id="@+id/action_resultFragment_to_questionFragment"
             app:destination="@id/questionFragment">

@@ -9,9 +9,10 @@ import androidx.navigation.fragment.findNavController
 class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Configurar botón para empezar el juego
-        view.findViewById<Button>(R.id.startButton).setOnClickListener {
 
+        // Set up the button to start the game
+        view.findViewById<Button>(R.id.startButton).setOnClickListener {
+            // Navigate to the QuestionFragment when the button is clicked
             findNavController().navigate(R.id.action_welcomeFragment_to_questionFragment)
         }
     }
