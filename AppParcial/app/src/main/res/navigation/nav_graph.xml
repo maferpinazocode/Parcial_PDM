@@ -19,16 +19,15 @@
         android:name="com.example.questionsanswers.QuestionFragment"
         android:label="Question"
         tools:layout="@layout/fragment_question">
+        <argument
+            android:name="isCorrect"
+            app:argType="boolean" />
+        <argument
+            android:name="correctAnswer"
+            app:argType="string" />
         <action
             android:id="@+id/action_questionFragment_to_answerFragment"
-            app:destination="@id/answerFragment">
-            <argument
-                android:name="isCorrect"
-                app:argType="boolean" />
-            <argument
-                android:name="correctAnswer"
-                app:argType="string" />
-        </action>
+            app:destination="@id/answerFragment" />
     </fragment>
 
     <fragment
@@ -36,6 +35,12 @@
         android:name="com.example.questionsanswers.AnswerFragment"
         android:label="Answer"
         tools:layout="@layout/fragment_answer" >
+        <argument
+            android:name="isCorrect"
+            app:argType="boolean" />
+        <argument
+            android:name="correctAnswer"
+            app:argType="string" />
         <action
             android:id="@+id/action_answerFragment_to_questionFragment"
             app:destination="@id/questionFragment" />

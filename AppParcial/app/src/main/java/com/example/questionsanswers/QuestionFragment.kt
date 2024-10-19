@@ -14,14 +14,13 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         Question(
             text = "¿Cuál es la capital de Francia?",
             options = listOf("Berlín", "Madrid", "París", "Lisboa"),
-            correctAnswerIndex = 2 // París es la respuesta correcta
+            correctAnswerIndex = 2
         ),
         Question(
             text = "¿Cuánto es 2 + 2?",
             options = listOf("3", "4", "5", "6"),
-            correctAnswerIndex = 1 // 4 es la respuesta correcta
+            correctAnswerIndex = 1
         )
-        // Agrega más preguntas según sea necesario
     )
 
     private var currentQuestionIndex = 0 // Para rastrear la pregunta actual
@@ -29,13 +28,11 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Cargar la pregunta actual
         loadQuestion(view)
 
         view.findViewById<Button>(R.id.submitButton).setOnClickListener {
             val selectedOptionIndex = getSelectedOptionIndex(view)
             if (selectedOptionIndex != -1) {
-                // Navegar a la pantalla de respuesta
                 val action = QuestionFragmentDirections.actionQuestionFragmentToAnswerFragment(
                     isCorrect = (selectedOptionIndex == questions[currentQuestionIndex].correctAnswerIndex),
                     correctAnswer = questions[currentQuestionIndex].options[questions[currentQuestionIndex].correctAnswerIndex]
@@ -50,7 +47,6 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
         view.findViewById<TextView>(R.id.questionTextView).text = question.text
         val optionsRadioGroup = view.findViewById<RadioGroup>(R.id.optionsRadioGroup)
 
-        // Asigna las opciones a los RadioButtons
         val optionsButtons = listOf(
             view.findViewById<RadioButton>(R.id.option1RadioButton),
             view.findViewById<RadioButton>(R.id.option2RadioButton),
@@ -72,7 +68,24 @@ class QuestionFragment : Fragment(R.layout.fragment_question) {
             R.id.option2RadioButton -> 1
             R.id.option3RadioButton -> 2
             R.id.option4RadioButton -> 3
-            else -> -1 // Ninguna opción seleccionada
+            else -> -1
+        }
+    }
+
+    private fun navigateToAnswerFragment(isCorrect: Boolean, correctAnswer: String) {
+        val action = QuestionFragmentDirections.actionQuestionFragmentToAnswerFragment(
+            isCorrect = isCorrect,
+            correctAnswer = correctAnswer
+        )
+        findNavController().navigate(action)
+    }
+
+    private fun submitAnswer(view: View) {
+        val selectedOptionIndex = getSelectedOptionIndex(view)
+        if (selectedOptionIndex != -1) {
+            val isCorrect = (selectedOptionIndex == questions[currentQuestionIndex].correctAnswerIndex)
+            val correctAnswer = questions[currentQuestionIndex].options[questions[currentQuestionIndex].correctAnswerIndex]
+            navigateToAnswerFragment(isCorrect, correctAnswer)
         }
     }
 }
